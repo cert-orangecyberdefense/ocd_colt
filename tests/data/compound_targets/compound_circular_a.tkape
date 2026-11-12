@@ -1,0 +1,9 @@
+Description: Circular reference A - references compound_circular_b
+Author: tester
+Version: 1.0
+Id: aaaaaaaa-0000-0001-0000-000000000004
+RecreateDirectories: true
+Targets:
+  - Name: CircularRef
+    Category: FileSystem
+    Path: compound_circular_b.tkape

@@ -1,0 +1,12 @@
+Description: Bad type for Recursive field
+Author: tester
+Version: 1.0
+Id: aaaaaaaa-0000-0000-0000-000000000009
+RecreateDirectories: true
+Targets:
+  - Name: $MFT
+    Category: FileSystem
+    Path: C:\
+    FileMask: $MFT
+    Recursive: not_a_bool
+    Comment: ""

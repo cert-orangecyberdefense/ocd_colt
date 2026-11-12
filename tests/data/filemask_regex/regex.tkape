@@ -1,0 +1,11 @@
+Description: Evtx regex collection
+Author: tester
+Version: 1.0
+Id: 7a28f9a2-8b47-11f1-b611-03aa79c0bced
+RecreateDirectories: true
+Targets:
+    -
+        Name: Event logs Win7+
+        Category: EventLogs
+        Path: C:\Windows\System32\winevt\logs\
+        FileMask: 'regex:s(etu|yste).\.evtx'

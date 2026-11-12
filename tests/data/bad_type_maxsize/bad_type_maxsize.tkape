@@ -1,0 +1,13 @@
+Description: Bad type for MaxSize field
+Author: tester
+Version: 1.0
+Id: aaaaaaaa-0000-0000-0000-000000000010
+RecreateDirectories: true
+Targets:
+  - Name: $MFT
+    Category: FileSystem
+    Path: C:\
+    FileMask: $MFT
+    Recursive: false
+    MaxSize: not_a_number
+    Comment: ""

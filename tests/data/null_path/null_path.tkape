@@ -1,0 +1,12 @@
+Description: Null value for required Path field
+Author: tester
+Version: 1.0
+Id: aaaaaaaa-0000-0000-0000-000000000011
+RecreateDirectories: true
+Targets:
+  - Name: $MFT
+    Category: FileSystem
+    Path: null
+    FileMask: $MFT
+    Recursive: false
+    Comment: ""

@@ -1,0 +1,69 @@
+Description: Compoound for test
+Author: tester
+Version: 1.5
+Id: 0939c98a-64e4-11f1-9dfe-57c55d3db279
+RecreateDirectories: true
+Targets:
+    - Name: $Boot
+      Category: FileSystem
+      Path: $Boot.tkape
+    - Name: $J
+      Category: FileSystem
+      Path: $J.tkape
+    - Name: $LogFile
+      Category: FileSystem
+      Path: $LogFile.tkape
+    - Name: $MFT
+      Category: FileSystem
+      Path: $MFT.tkape
+    - Name: $SDS
+      Category: FileSystem
+      Path: $SDS.tkape
+    - Name: $T
+      Category: FileSystem
+      Path: $T.tkape
+    - Name: Amcache
+      Category: ApplicationCompatibility
+      Path: Amcache.tkape
+    - Name: AppCompatPCA
+      Category: ApplicationCompatibility
+      Path: AppCompatPCA.tkape
+    - Name: BITS
+      Category: BITS
+      Path: BITS.tkape
+    - Name: EventLogs
+      Category: EventLogs
+      Path: EventLogs.tkape
+    - Name: PowerShellConsole
+      Category: PowerShellConsole
+      Path: PowerShellConsole.tkape
+    - Name: Prefetch
+      Category: Prefetch
+      Path: Prefetch.tkape
+    - Name: RecentFileCache
+      Category: ApplicationCompatibility
+      Path: RecentFileCache.tkape
+    - Name: RegistryHives
+      Category: Registry
+      Path: RegistryHives.tkape
+    - Name: SRUM
+      Category: Execution
+      Path: SRUM.tkape
+    - Name: SUM
+      Category: Logs
+      Path: SUM.tkape
+    - Name: ScheduledTasks
+      Category: ScheduledTasks
+      Path: ScheduledTasks.tkape
+    - Name: Syscache
+      Category: Syscache
+      Path: Syscache.tkape
+    - Name: ThumbCache
+      Category: FileKnowledge
+      Path: Thumbcache.tkape
+    - Name: WBEM
+      Category: WBEM
+      Path: WBEM.tkape
+    - Name: WER
+      Category: WER
+      Path: WER.tkape

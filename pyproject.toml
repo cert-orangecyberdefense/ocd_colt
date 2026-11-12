@@ -1,0 +1,136 @@
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[project]
+name = "ocd_colt"
+version = "0.3.4"
+description = "Kape like extract from kape configuration, based on dissect"
+authors = [
+    {name = "wbi", email= "william.billaud@orange.com"}
+]
+license = "AGPL-3.0-or-later"
+readme = "README.md"
+# dissect "3.25 not working with 3.14
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "pyyaml (>=6.0.2,<7.0.0)",
+    "dissect-target (==3.25.1)",
+    "dissect-fve (>=4.2,<5) ; platform_system != \"Windows\" or platform_python_implementation != \"PyPy\"",
+    "dissect-cstruct (>=4.4,<5.0)"
+]
+# https://pypi.org/classifiers/
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Information Technology",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: Utilities",
+    ]
+
+[project.scripts]
+ocd_colt = "ocd_colt.cli:main"
+kape_offline = "ocd_colt.cli:main"
+
+[project.optional-dependencies]
+lint = [
+    "ruff (==0.16.4)",
+]
+
+[project.urls]
+repository = "https://github.com/cert-orangecyberdefense/ocd_colt"
+issues = "https://github.com/cert-orangecyberdefense/ocd_colt/issues"
+
+[tool.poetry]
+packages = [{include = "ocd_colt", from = "src"}]
+
+include = [
+        { path = "src/ocd_colt/data/kape_configuration/**/*.tkape", format = ["sdist", "wheel"] }
+]
+exclude = [
+    "src/ocd_colt/data/kape_configuration/"
+]
+
+[tool.flake8]
+max-line-length = 120
+
+
+[tool.mypy]
+files = ["src"]
+mypy_path = 'src'
+
+[tool.ruff]
+# Same as Black.
+line-length = 120
+indent-width = 4
+# Assume Python 3.10
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+    # flake8-logging
+    "LOG",
+    # flake8-logging-format
+    "G",
+    # Exception
+    #"TRY",
+    # Use of pathlib
+    "PTH",
+    # Type checking
+    "TC",
+    "RUF"
+]
+future-annotations = true
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+docstring-code-line-length = "dynamic"
+docstring-code-format = true
+
+[tool.ruff.lint.isort]
+required-imports = ["from __future__ import annotations"]
+
+[tool.tox]
+requires = ["tox>=4.19"]
+env_list = ["lint", "3.12"]
+isolated_build = true
+
+[tool.tox.env.lint]
+description = "run lint check on code base"
+deps = ["ruff==0.16.4"]
+skip_install = true
+commands = [["ruff","format", "--check", "src", "tests"], ["ruff","check", "src", "tests"]]
+
+[tool.tox.env.format]
+description = "run formatting on code base"
+skip_install = true
+deps = ["ruff==0.16.4"]
+commands = [["ruff","format", "src", "tests"], ["ruff","check", "--fix" ,"src", "tests"]]
+
+[tool.tox.env_run_base]
+description = "run test"
+commands = [["python", "-m", "unittest", "discover", "-vvv", "-b", "tests"]]
+

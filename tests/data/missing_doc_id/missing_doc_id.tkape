@@ -1,0 +1,11 @@
+Description: Document missing Id field
+Author: tester
+Version: 1.0
+RecreateDirectories: true
+Targets:
+  - Name: $MFT
+    Category: FileSystem
+    Path: C:\
+    FileMask: $MFT
+    Recursive: false
+    Comment: ""

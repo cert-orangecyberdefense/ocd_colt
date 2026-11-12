@@ -1,0 +1,4 @@
+Description: [unclosed bracket
+Author: tester
+  bad_indent: - this is wrong
+    : missing key

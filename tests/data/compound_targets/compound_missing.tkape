@@ -1,0 +1,9 @@
+Description: Compound referencing a non-existent tkape file
+Author: tester
+Version: 1.0
+Id: aaaaaaaa-0000-0001-0000-000000000001
+RecreateDirectories: true
+Targets:
+  - Name: Missing
+    Category: FileSystem
+    Path: nonexistent.tkape

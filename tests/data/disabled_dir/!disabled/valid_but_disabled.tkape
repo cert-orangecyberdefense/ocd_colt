@@ -1,0 +1,12 @@
+Description: Valid file that should be ignored because it is in !disabled
+Author: tester
+Version: 1.0
+Id: aaaaaaaa-0000-0000-0000-000000000012
+RecreateDirectories: true
+Targets:
+  - Name: $MFT
+    Category: FileSystem
+    Path: C:\
+    FileMask: $MFT
+    Recursive: false
+    Comment: ""

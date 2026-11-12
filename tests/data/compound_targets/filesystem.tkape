@@ -1,0 +1,16 @@
+Description: OCD CSIRT filesystem
+# Contains all artefacts related to filesystems, that must be collected in priority
+Author: test
+Version: 1.0
+Id: e9fead32-1391-11f0-9484-0754b977d061
+RecreateDirectories: true
+Targets:
+    - Name: $J
+      Category: FileSystem
+      Path: $J.tkape
+    - Name: $LogFile
+      Category: FileSystem
+      Path: $LogFile.tkape
+    - Name: $MFT
+      Category: FileSystem
+      Path: $MFT.tkape
