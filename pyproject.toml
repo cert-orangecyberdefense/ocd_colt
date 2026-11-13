@@ -41,7 +41,7 @@ kape_offline = "ocd_colt.cli:main"
 
 [project.optional-dependencies]
 lint = [
-    "ruff (==0.16.4)",
+    "ruff (==0.17.5)",
 ]
 
 [project.urls]
@@ -120,17 +120,22 @@ isolated_build = true
 
 [tool.tox.env.lint]
 description = "run lint check on code base"
-deps = ["ruff==0.16.4"]
+deps = ["ruff==0.17.5"]
 skip_install = true
 commands = [["ruff","format", "--check", "src", "tests"], ["ruff","check", "src", "tests"]]
 
 [tool.tox.env.format]
 description = "run formatting on code base"
 skip_install = true
-deps = ["ruff==0.16.4"]
+deps = ["ruff==0.17.5"]
 commands = [["ruff","format", "src", "tests"], ["ruff","check", "--fix" ,"src", "tests"]]
 
 [tool.tox.env_run_base]
 description = "run test"
 commands = [["python", "-m", "unittest", "discover", "-vvv", "-b", "tests"]]
 
+[tool.tox.gh.python]
+"3.13" = ["3.13"]
+"3.12" = ["3.12"]
+"3.11" = ["3.11"]
+"3.10" = ["3.10"]
